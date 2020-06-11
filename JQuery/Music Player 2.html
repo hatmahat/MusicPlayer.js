@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+
+            body, html {
+                margin: 0;
+                height: 100%;
+                background-image: linear-gradient(to bottom right, rgb(0, 153, 187), rgb(6, 60, 135));
+            }
+            .container1 {
+                background-color: rgba(240, 248, 255, 0.694);
+                width: 350px;
+                height: 530px;
+                margin: auto;
+                border-radius: 15px 15px 0 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                margin: 0;
+       
+            }
+            .container2 {
+                width: 350px;
+                height: 630px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                z-index: 1000;
+                animation: float 4s infinite;
+            }
+            .one {
+                width: 350px;
+                height: 350px;
+                border-radius: 15px 15px 0 0;
+                z-index: -1;
+            }
+            .below {
+                background-color: rgba(0, 42, 255, 0.877);
+                position: absolute;
+                top: 347px;
+                height: 5px;
+                width: 350px;
+            }
+            #text {
+                text-align: center;
+                font-family: Montserrat, sans-serif;
+            }
+            .artist {
+                font-size: 20px; 
+                margin: 0px;
+                position: relative;
+                top: 8px;
+            }
+            .song {
+                font-weight: 900;
+                position: relative;
+                top: 15px;
+                font-size: 25px;
+            }
+            .album {
+                font-size: 17px;
+                position: relative;
+                top: 3px;
+            }
+            
+            .below2 {
+                box-sizing: border-box;
+                display: inline-block;
+                height: 100px;
+                width: 350px;
+                position: absolute;
+                top: 530px;
+                background-color: rgba(161, 205, 255, 0.705);
+                border-radius: 0 0 15px 15px;
+                /*border: 2px solid rgba(240, 248, 255, 0.694);*/
+                border-top: none;
+                -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+            }
+            .blur {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(149, 149, 149, 0.4); 
+                position: absolute;
+                z-index: 1;
+            }
+            .below2:hover {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.03);
+                box-shadow: 0 5px 15px rgba(154, 154, 154, 0.3);
+            }
+            .pause {
+                height: 60px;
+                position: absolute;
+                top: 50%;
+                left: 175px;
+                margin-top: -30px; /* biar ditengah */
+                margin-left: -30px; 
+            }
+            .skip1 {
+                height: 50px;
+                width: 50px;
+                position: absolute;
+                top: 50%;
+                left: 235px;
+                margin-top: -25px; /* biar ditengah */
+                margin-left: -25px; 
+            }
+            .rev {
+                height: 50px;
+                width: 50px;
+                position: absolute;
+                top: 50%;
+                left: 115px;
+                margin-top: -25px; /* biar ditengah */
+                margin-left: -25px; 
+            }
+            .rep {
+                height: 20px;
+                position: absolute;
+                top: 50%;
+                width: 25px;
+                left: 295px;
+                margin-top: -10px; /* biar ditengah */
+                margin-left: -12.5px;                 
+            }
+            .music {
+                height: 24px;
+                position: absolute;
+                top: 50%;
+                width: 25px;
+                left: 55px;
+                margin-top: -12px; /* biar ditengah */
+                margin-left: -12.5px;    
+            }
+
+
+            /* rgba(245, 245, 245, 0.367); */
+            /* player */
+            #thefile {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 100;
+            }
+
+            #canvas {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(161, 228, 243, 1);
+                filter: blur(1px);
+            }
+
+            audio {
+                position: relative;
+                left: 50%;
+                margin-left: -500px;
+                bottom: 20px;
+                width: 1000px;
+                z-index: 2;
+            }
+
+            @keyframes float {
+                0% {
+                    top: 50%;
+                }
+                50% {
+                    top: 51.5%;
+                }
+                100% {
+                    top: 50%;
+                }
+            }
+        </style>
+        <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Signika:300&display=swap" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="container2">
+            <div class="container1">
+                    <div class="img">
+                        <img class="one" src="final.png" alt="LAUV">
+                    </div>
+                    
+                    <div class="below"></div>
+                    
+                    <div id="text">
+                        <h1 class="song">Comfortable</h1>
+                        <p class="artist">Lauv</p>
+                        <p class="album">I met you when I was 18</p>
+                    </div> 
+            
+                    <div class="below2">
+                        <img class="pause" src="pause4.png" alt="pause">
+                        <img class="skip1" src="skip22.png" alt="skip">
+                        <img class="rev" src="rev11.png" alt="reverse">
+                        <img class="rep" src="reep.png" alt="rep">
+                        <img class="music" src="music.png" alt="music">
+                    </div>
+            </div>
+        </div>
+        
+        <div class="blur"></div>
+
+        <div id="content">
+            <input type="file" id="thefile" accept="audio/*" />
+            <canvas id="canvas"></canvas>
+            <audio id="audio" controls></audio>
+        </div>
+
+    <script type="text/javascript">
+
+        // Visualizer Machine
+
+        // When load 
+        window.onload = function() {
+        
+        // Declaration
+        var file = document.getElementById("thefile");
+        var audio = document.getElementById("audio");
+        
+        // When Changed
+        file.onchange = function() {
+
+                // WHAAAAAT
+                var files = this.files;
+                audio.src = URL.createObjectURL(files[0]);
+                audio.load();
+                audio.play();
+                var context = new AudioContext();
+                var src = context.createMediaElementSource(audio);
+                var analyser = context.createAnalyser();
+
+                var canvas = document.getElementById("canvas");
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                var ctx = canvas.getContext("2d");
+
+                src.connect(analyser);
+                analyser.connect(context.destination);
+
+                analyser.fftSize = 256;
+
+                var bufferLength = analyser.frequencyBinCount;
+                console.log(bufferLength);
+
+                var dataArray = new Uint8Array(bufferLength);
+
+                var WIDTH = canvas.width;
+                var HEIGHT = canvas.height;
+
+                var barWidth = (WIDTH / bufferLength) * 2.5;
+                var barHeight;
+                var x = 0;
+
+                function renderFrame() {
+                    requestAnimationFrame(renderFrame);
+
+                    x = 0;
+
+                    analyser.getByteFrequencyData(dataArray);
+                    
+                    var my_gradient = ctx.createLinearGradient(0, 0, WIDTH, 0);
+                    my_gradient.addColorStop(0, "rgb(33, 193, 237)");
+                    my_gradient.addColorStop(1, "rgb(169, 213, 219)");
+                    
+                    ctx.fillStyle = my_gradient;
+                    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+                    for (var i = 0; i < bufferLength; i++) {
+                        barHeight = dataArray[i];
+                        
+                        var r = barHeight + (25 * (i/bufferLength));
+                        var g = 100 * (i/bufferLength);
+                        var b = 50;
+
+                        //rgb(" + 2 + "," + 68 + "," + 190 + ")
+
+                        ctx.fillStyle = "rgba(1, 67, 190)";
+                        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+
+                        x += barWidth + 1;
+                    }
+                }
+                audio.play();
+                renderFrame();
+            };
+        };
+    </script>
+    </body>
+</html>

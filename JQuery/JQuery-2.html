@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>JQuery 2</title>
+        <style type="text/css">
+  
+        </style>
+        <script type="text/javascript" src="jquery2.min.js"></script>
+    </head>
+    <body>
+        
+        <p id="Good"></p>
+        <script type="text/javascript">
+            /*
+            $.ajax("test.txt").done(function(data){
+                $("#Good").html(data);
+            }).fail(function() {
+                alert("Could not get data")
+            });
+            */
+            var regex = /Regex/;
+
+            var string = "Regex is great!";
+
+            var result = string.match(regex);
+
+            alert(result);
+
+        </script>
+    </body>
+</html>
